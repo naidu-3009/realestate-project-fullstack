@@ -1,9 +1,16 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
+import userRouter from './routes/user.route.js'; // Correctly import the userRouter
+
 dotenv.config();
 
+const app = express();
 
+// Middleware to parse JSON
+app.use(express.json());
+
+// Database connection
 mongoose.connect(process.env.MONGO)
     .then(() => {
         console.log("Connected to database");
@@ -12,10 +19,10 @@ mongoose.connect(process.env.MONGO)
         console.log(err);
     });
 
+// Use the user routes under the /api/user path
+app.use("/api/user", userRouter); // Mount the user routes under /api/user
 
-
-const app=express();
-
-app.listen(3000,()=>{
-    console.log("server is running at port 3000!")
-})
+// Start the server
+app.listen(3000, () => {
+    console.log("Server is running at port 3000!");
+});
