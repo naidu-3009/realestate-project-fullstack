@@ -41,7 +41,7 @@ export default function SignUp() {
         setError(data.message);
       } else {
         setError(null);
-        navigate('/sign-in');
+        navigate('/signin');
       }
     } catch (error) {
       setError(error.message);
@@ -92,7 +92,7 @@ export default function SignUp() {
         </form>
         <div className="flex justify-center mt-5">
           <p>Already have an account?</p>
-          <Link to="/sign-in">
+          <Link to="/signin">
             <span className="text-blue-700 ml-2 cursor-pointer">Sign in</span>
           </Link>
         </div>
