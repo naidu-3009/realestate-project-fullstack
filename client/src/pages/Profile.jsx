@@ -1,108 +1,3 @@
-// import React, { useEffect, useState, useRef } from "react";
-// import { useSelector } from "react-redux";
-// import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-// import { app } from "../firebase";
-
-// export default function Profile() {
-//   const fileRef = useRef(null);
-//   const { currentUser } = useSelector((state) => state.user);
-//   const [file, setFile] = useState(null);
-// const [preview, setPreview] = useState(currentUser.user.avatar);
-//   const  [filePerc,setFilePerc] = useState(0);
-
-//   console.log(filePerc);
-//   console.log(file);
-//   useEffect(() => {
-//     if (file) {
-//       handleFileUpload(file);
-//     }
-//   }, [file]);
-
-//   const handleFileUpload = (file) => {
-//     const storage = getStorage(app);
-//     const fileName = new Date().getTime() + file.name; // Corrected this line
-//     const storageRef = ref(storage, fileName);
-//     const uploadTask = uploadBytesResumable(storageRef, file);
-
-//     uploadTask.on("state_changed", (snapshot) => {
-//       const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-//       // console.log("Upload is " + progress + "% done");
-//       setFilePerc(Math.round(progress));
-//     });
-//   };
-
-//   const handleFileChange = (e) => {
-//     const selectedFile = e.target.files[0];
-//     setFile(selectedFile);
-//     if (selectedFile) {
-//       setPreview(URL.createObjectURL(selectedFile));
-//     }
-//   };
-
-//   const handleFormSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!file) return;
-
-//     const formData = new FormData();
-//     formData.append("file", file);
-//     // Add other form data as needed, e.g., username, email, etc.
-
-//     // Send the formData to your server
-//     // Example:
-//     // const response = await fetch('/api/upload', {
-//     //   method: 'POST',
-//     //   body: formData,
-//     // })
-//     // Handle the response
-//   };
-
-//   return (
-//     <div className="p-3 max-w-lg mx-auto">
-//       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
-//       <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
-//         <input
-//           onChange={handleFileChange}
-//           type="file"
-//           ref={fileRef}
-//           hidden
-//           accept="image/*"
-//         />
-//         <img
-//           onClick={() => fileRef.current.click()}
-//           src={preview}
-//           alt="profile"
-//           className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2"
-//         />
-//         <input
-//           type="text"
-//           id="username"
-//           placeholder="username"
-//           className="border p-3 rounded-lg"
-//         />
-//         <input
-//           type="email"
-//           id="email"
-//           placeholder="email"
-//           className="border p-3 rounded-lg"
-//         />
-//         <input
-//           type="text"
-//           id="password"
-//           placeholder="password"
-//           className="border p-3 rounded-lg"
-//         />
-//         <button className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
-//           update
-//         </button>
-//       </form>
-//       <div className="flex justify-between mt-5">
-//         <span className="text-red-700 cursor-pointer">Delete Account</span>
-//         <span className="text-red-700 cursor-pointer">Sign Out</span>
-//       </div>
-//     </div>
-//   );
-// }
-
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import {
@@ -284,6 +179,10 @@ export default function Profile() {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+        <Link className='bg-blue-600 text-white p-3 rounded-lg
+         uppercase text-center  hover:opacity-95'  to={"/createlisting"} >
+        Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span
