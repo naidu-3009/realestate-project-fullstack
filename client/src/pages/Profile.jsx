@@ -111,19 +111,23 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import {
+  updateUserFailure,
+  updateUserSuccess,
+  updateUserStart,
+} from "../redux/user/userSlice.js";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 export default function Profile() {
   const fileRef = useRef(null);
   const dispatch = useDispatch(); // Initialize dispatch here
-
+  const [UpdateSuccess, setUpdateSuccess] = useState({});
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
-
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -137,7 +141,7 @@ export default function Profile() {
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
-      'state_changed',
+      "state_changed",
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -246,6 +250,10 @@ export default function Profile() {
         <span className="text-red-700 cursor-pointer">Delete Account</span>
         <span className="text-red-700 cursor-pointer">Sign Out</span>
       </div>
+      <p className="text-red-700 mt-5">{error ? error : ""} </p>
+      <p className="text-green-700 mt-5">
+        {UpdateSuccess ? "User is updated successfully" : ""}
+      </p>
     </div>
   );
 }
