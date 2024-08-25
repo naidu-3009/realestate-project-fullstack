@@ -7,7 +7,7 @@ export default function about() {
         {" "}
         About VistaraHomes
       </h1>
-      <p className="mb-4 text-slate-700 font-semibold">
+      <p className="mb-5 text-slate-700 font-semibold">
         Welcome to VistaraHomes, your trusted platform for all real estate
         needs. Whether you're looking to rent, buy, or sell properties,
         VistaraHomes offers a seamless and user-friendly experience tailored
@@ -16,7 +16,7 @@ export default function about() {
         wide array of listings across diverse locations, we ensure that you have
         access to the best opportunities in the real estate market.
       </p>
-      <p className="mb-4 text-slate-700 font-semibold">
+      <p className="mb-5 text-slate-700 font-semibold">
         At VistaraHomes, we prioritize convenience and transparency. Our
         platform allows you to directly connect with landlords and property
         owners, ensuring clear communication and a hassle-free process. Whether
@@ -26,7 +26,7 @@ export default function about() {
         to providing a secure environment where you can make informed decisions
         with confidence.
       </p>
-      <p className="mb-4 text-slate-700 font-semibold">
+      <p className="mb-5 text-slate-700 font-semibold">
         Our mission is to revolutionize the way people interact with real
         estate. We believe in empowering our users with the tools and
         information they need to make smart real estate decisions. VistaraHomes
@@ -34,6 +34,17 @@ export default function about() {
         landlords, and tenants come together to achieve their goals. Join us
         today and experience the future of real estate, where your satisfaction
         is our top priority.
+      </p>
+      <p className="mb-5 text-slate-700 font-semibold">
+        We understand that real estate is more than just
+        transactions—it's about finding the right place to build your future.
+        That's why we’ve curated a comprehensive collection of resources to
+        assist you in every stage of your real estate journey. From in-depth
+        neighborhood guides to expert advice on buying, selling, or renting, our
+        platform offers everything you need to make well-informed choices. We
+        are dedicated to continuously improving our services to meet the
+        evolving needs of our users, ensuring that you always have access to the
+        latest trends, market insights, and property listings.
       </p>
     </div>
   );

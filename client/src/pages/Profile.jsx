@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 export default function Profile() {
   const fileRef = useRef(null);
   const dispatch = useDispatch(); // Initialize dispatch here
-  const [UpdateSuccess, setUpdateSuccess] = useState({});
+  const [UpdateSuccess, setUpdateSuccess] = useState(false);
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
@@ -68,6 +68,7 @@ export default function Profile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //  setUpdateSuccess(false)
     try {
       dispatch(updateUserStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
@@ -235,9 +236,9 @@ export default function Profile() {
           Sign Out
         </span>
       </div>
-      <p className="text-red-700 mt-5">{error ? error : ""} </p>
-      <p className="text-green-700 mt-5">
-        {UpdateSuccess ? "User is updated successfully" : "  "}
+      <p className='text-red-700 mt-5'>{error ? error : ''}</p>
+      <p className='text-green-700 mt-5'>
+        {UpdateSuccess ? 'User is updated successfully!' : ''}
       </p>
       <button onClick={handleShowListings} className="text-blue-700 w-full">
         Show Listings

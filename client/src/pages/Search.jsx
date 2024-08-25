@@ -136,7 +136,7 @@ export default function Search() {
               placeholder="Search..."
               value={sidebardata.searchTerm}
               onChange={handleChange}
-              className="border rounded-lg p-3 w-full"
+              className="border rounded-lg p-3 w-full focus:outline-none"
             />
           </div>
           <div className="flex gap-2 flex-wrap items-center">
